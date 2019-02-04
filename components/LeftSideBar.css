@@ -1,0 +1,9 @@
+.panel-title a {
+    background: #fff;
+    color: #000;
+}
+
+.panel-title .active {
+    background: #66bb6a !important;
+    color: #fff;
+}
