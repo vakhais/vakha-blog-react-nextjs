@@ -1,4 +1,6 @@
 // next.config.js
+const { parsed: localEnv } = require('dotenv').config()
+const webpack = require('webpack')
 const withCSS = require('@zeit/next-css')
 //module.exports = withCSS({/* my next config */})
 module.exports = withCSS({
@@ -13,6 +15,7 @@ module.exports = withCSS({
           }
         }
       })
+      config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
       return config
     }
   })

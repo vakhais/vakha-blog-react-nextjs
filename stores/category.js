@@ -11,9 +11,6 @@ class Store extends BaseStore {
     if (this.categorys.length > 0) {
       return;
     }
-    // const userPromise = yield axios.get('http://localhost:5000/api/categorys').then(
-    //   response => response.data
-    // )
     const userPromise = yield axios.get(`http://localhost:5000/api/categorys`).then(
       response => response.data
     )

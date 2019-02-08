@@ -124,7 +124,7 @@ const Header = () => {
 								{/* <li><a href="index.html">home</a></li> */}
 								<li><NavLink activeClassName="active" href="/about"><a>about</a></NavLink></li>
 								<li><a href="contact.html">contact</a></li>
-								<li><a href="details.html">Post Details</a></li>
+								<li><NavLink activeClassName="active" href="/postWrite"><a>Post Write</a></NavLink></li>
 							</ul>
 							<ul className="nav navbar-nav navbar-right hidden-xs">
 								<li><a href="#"><i className="fa fa-twitter twitter"></i></a></li>

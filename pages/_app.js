@@ -19,6 +19,10 @@ import '../css/style.css'
 configure({enforceActions: 'observed'});
 useStaticRendering(isServer); // NOT `true` value
 
+const isClientOrServer = () => {
+  return (typeof window !== 'undefined' && window.document) ? 'client' : 'server';
+};
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
@@ -32,6 +36,10 @@ class MyApp extends App {
     await categoryStore.fetchCategorys();
 
     const categorys = categoryStore.getCategorys();
+
+    if (isClientOrServer() === 'client') {
+
+    }
 
     return { pageProps, categorys }
   }
