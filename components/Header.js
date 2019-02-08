@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import NavLink from './NavLink';
 
 const linkStyle = {
     marginRight: '1rem'
@@ -10,7 +11,7 @@ const Header = () => {
 			<div className="header-top">
 				<div className="container">
 					<div className="col-md-9 col-sm-7 xs-view">
-						<a href="index.html"><img className="logo" src="/static/logo.png" alt="Logo"/></a>
+					<Link href="/"><h2 style={{ color : "#fff" }}>Vakha Blog</h2></Link>
 					</div>
 					<div className="col-md-3 col-sm-5 xs-view-right">
 						<div className="search-section center-block">
@@ -120,8 +121,8 @@ const Header = () => {
 						</div>
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul className="nav navbar-nav navbar-left">
-								<li><a href="index.html">home</a></li>
-								<li><a href="about.html">about</a></li>
+								{/* <li><a href="index.html">home</a></li> */}
+								<li><NavLink activeClassName="active" href="/about"><a>about</a></NavLink></li>
 								<li><a href="contact.html">contact</a></li>
 								<li><a href="details.html">Post Details</a></li>
 							</ul>

@@ -15,6 +15,14 @@ app.prepare()
     app.render(req, res, actualPage, queryParams)
   })
 
+  server.get('/c/:id', (req, res) => {
+    //console.log("server!!!!!!!!!!:", req.params)
+    console.log("server!!!!!!!!!!:", req.query)
+    const actualPage = '/category'
+    const queryParams = { title: req.params.id } 
+    app.render(req, res, actualPage, queryParams)
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })

@@ -6,7 +6,7 @@ const footerStyle = {
 const Footer = () => {
     return (
         <footer>
-			<div className="footer-menu">
+			{/* <div className="footer-menu">
 				<div className="container">
 					<div className="col-md-4 col-sm-4 center-block">
 						<h3 className="footer-head">this author blog from crea tivemine</h3>
@@ -71,7 +71,7 @@ const Footer = () => {
 				<div id="toTop" className="btn btn-info" style={{display: 'block'}}>
 					<span className="fa fa-angle-up"></span>
 				</div>
-			</div>
+			</div> */}
 		</footer>
     );
 };
