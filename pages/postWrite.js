@@ -24,8 +24,8 @@ class PostWrite extends React.Component {
 
     postSubmit(post) {
         console.log("test1111", post)
-        const { title, body , categoryId} = post;
-        if (!title || !body || !categoryId) return;
+        const { title, body , categoryNm } = post;
+        if (!title || !body || !categoryNm) return;
         
         // TODO: Post submit
 
@@ -34,6 +34,7 @@ class PostWrite extends React.Component {
         setPost(postRequest)
         .then(response => {
             console.log(response)
+            alert("Post write success!!!!")
             //this.props.history.push("/login");
         }).catch(error => {
             console.log(error)  

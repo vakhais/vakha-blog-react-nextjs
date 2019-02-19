@@ -21,6 +21,19 @@ class Store extends BaseStore {
   getCategorys = () => {
     return this.categorys;
   };
+
+  getCategoryIdByNm = (categoryNm) => {
+    if (this.categorys.length <= 0) return
+
+    let id = undefined
+
+    this.categorys.map((category) => {
+      if (category.nm === categoryNm) id = category.id
+    })
+    console.log("q1111:",categoryNm)
+
+    return id
+  }
 }
 
 // Make sure the store’s unique name

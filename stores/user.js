@@ -4,17 +4,39 @@ import {observable, action, flow} from 'mobx';
 
 class Store extends BaseStore {
   @observable userRegistry = new Map();
+  @observable currentUser = {}
+  @observable authenticated = false
 
-  fetchUser = flow(function*(id) {
-    if (this.userRegistry.has(id)) {
-      return;
-    }
+  setUser = flow(function*(user) {
+    // if (this.userRegistry.has(id)) {
+    //   return;
+    // }
 
     // const userPromise = yield fetch(`https://api.domain.com/users/${id}`).then(
     //   response => response.json(),
     // );
-    this.userRegistry.set(id, userPromise.data.user);
+    //this.userRegistry.set(id, userPromise.data.user);
+    this.currentUser = user
+    this.authenticated = true
   });
+
+  // setUser = (user) => {
+  //   console.log("qeqwe12:setUser")
+  //   this.currentUser = user
+  //   this.authenticated = true
+  // }
+
+  deleteUser = () => {
+    this.currentUser = {}
+    this.authenticated = false
+  }
+
+  getUser = () => {
+    return {
+      currentUser: this.currentUser,
+      authenticated: this.authenticated
+    }
+  }
 
   getUserById = id => {
     return this.userRegistry.get(id);

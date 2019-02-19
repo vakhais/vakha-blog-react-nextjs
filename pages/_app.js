@@ -5,6 +5,7 @@ import {configure} from 'mobx';
 import {Provider, useStaticRendering} from 'mobx-react';
 
 import * as getStores from '../stores';
+import { getCurrentUser } from '../util/APIUtils';
 
 const isServer = !process.browser;
 
@@ -32,13 +33,27 @@ class MyApp extends App {
     }
 
     // API 서버에서 카테고리 가져와 mobx 상태저장소에 저장
-    const categoryStore = ctx.store.categoryStore
+    const { categoryStore, userStore } = ctx.store
     await categoryStore.fetchCategorys();
 
     const categorys = categoryStore.getCategorys();
 
     if (isClientOrServer() === 'client') {
-
+      getCurrentUser()
+      .then(response => {
+          // this.setState({
+          //     currentUser: response,
+          //     authenticated: true,
+          //     loading: false
+          // });
+          console.log("test!!!!!:", response)
+          userStore.setUser(response)
+      }).catch(error => {
+          // this.setState({
+          //     loading: false
+          // });
+          //userStore.deleteUser()  
+      });      
     }
 
     return { pageProps, categorys }
@@ -46,7 +61,6 @@ class MyApp extends App {
 
   render () {
     const { Component, pageProps, store, categorys } = this.props
-    const { statusCode } = pageProps;
 
     return (
       <Container>

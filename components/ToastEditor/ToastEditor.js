@@ -24,6 +24,7 @@ class ToastEditor extends Component {
             title: "",
             body: "",
             categoryId: "",
+            categoryNm: ""
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -56,7 +57,8 @@ class ToastEditor extends Component {
         const post = {
             title: this.state.title,
             body: content,
-            categoryId: this.state.categoryId
+            categoryId: this.state.categoryId,
+            categoryNm: this.state.categoryNm
         }
 
         this.props.submit(post);
@@ -81,10 +83,10 @@ class ToastEditor extends Component {
                             <label htmlFor="exampleInputEmail1">Category*</label>
                             <select 
                                 className="form-control"
-                                name="categoryId"
+                                name="categoryNm"
                                 onChange={this.handleInputChange} >
                                 {this.props.categorys.map((category, index) => (
-                                    <option value={category.id} key={`option-${index}`}>{category.nm}</option>
+                                    <option value={category.nm} key={`option-${index}`}>{category.nm}</option>
                                 ))}
                             </select>
                         </div>
